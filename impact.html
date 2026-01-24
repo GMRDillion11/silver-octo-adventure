@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GR-MAN | Acts & Activities</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#f4fff7;
+  color:#222;
+  line-height:1.7;
+}
+
+/* HEADER */
+header{
+  background:
+    linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+    url("images/acts-header.jpg") center/cover no-repeat;
+  color:#fff;
+  padding:120px 20px;
+  text-align:center;
+}
+
+header h1{font-size:40px}
+header p{margin-top:15px;font-size:18px}
+
+/* MAIN */
+main{max-width:1100px;margin:auto;padding:60px 20px}
+section{margin-bottom:70px}
+
+h2{
+  color:#0b6623;
+  margin-bottom:20px;
+  border-left:6px solid #0b6623;
+  padding-left:15px;
+}
+
+.intro{font-size:17px;text-align:justify}
+
+/* ACT GRID */
+.acts-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:35px;
+}
+
+/* ACT CARD */
+.act-card{
+  height:230px;
+  border-radius:18px;
+  background-size:cover;
+  background-position:center;
+  position:relative;
+  overflow:hidden;
+  box-shadow:0 8px 22px rgba(0,0,0,.2);
+  cursor:pointer;
+  transition:.35s;
+}
+
+.act-card:hover{transform:translateY(-10px)}
+
+.act-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,.8), rgba(0,0,0,.3));
+  color:#fff;
+  padding:28px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+
+.act-overlay h3{font-size:20px;margin-bottom:8px}
+.act-overlay p{font-size:15px}
+
+/* ICON FLOAT */
+.icon{
+  font-size:34px;
+  animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+  100%{transform:translateY(0)}
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.7);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+}
+
+.modal-content{
+  background:#fff;
+  padding:35px;
+  max-width:500px;
+  border-radius:18px;
+  text-align:center;
+}
+
+.modal-content h3{color:#0b6623;margin-bottom:15px}
+.modal-content button{
+  margin-top:20px;
+  padding:10px 20px;
+  background:#0b6623;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+  background:purple;
+  color:#fff;
+  text-align:center;
+  padding:35px 20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Our Acts & Activities</h1>
+<p>Living the Golden Rule through action, service, and peace</p>
+</header>
+
+<main>
+
+<section>
+<h2>Why Our Acts Matter</h2>
+<p class="intro">
+Our activities translate moral values into real-life impact, restoring hope,
+peace, and dignity across African communities.
+</p>
+</section>
+
+<section>
+<h2>Major Acts We Carry Out</h2>
+
+<div class="acts-grid">
+
+<div class="act-card" onclick="openModal('Peacebuilding Acts','We resolve conflicts, build dialogue, and restore peace.')" style="background-image:url('images/peace.jpg')">
+  <div class="act-overlay">
+    <div class="icon">🕊</div>
+    <h3>Peacebuilding Acts</h3>
+    <p>Conflict resolution & dialogue</p>
+  </div>
+</div>
+
+<div class="act-card" onclick="openModal('Moral Restoration','Rebuilding values through ethical education.')" style="background-image:url('images/moral.jpg')">
+  <div class="act-overlay">
+    <div class="icon">🤝</div>
+    <h3>Moral Restoration</h3>
+    <p>Ethical reorientation</p>
+  </div>
+</div>
+
+<div class="act-card" onclick="openModal('Youth Development','Empowering youth with skills and leadership.')" style="background-image:url('images/youth.jpg')">
+  <div class="act-overlay">
+    <div class="icon">🎓</div>
+    <h3>Youth Development</h3>
+    <p>Skills & mentorship</p>
+  </div>
+</div>
+
+<div class="act-card" onclick="openModal('Humanitarian Support','Medical outreach and relief distribution.')" style="background-image:url('images/medical.jpg')">
+  <div class="act-overlay">
+    <div class="icon">💊</div>
+    <h3>Humanitarian Support</h3>
+    <p>Relief & medical care</p>
+  </div>
+</div>
+
+<div class="act-card" onclick="openModal('Advocacy','Promoting justice and peace awareness.')" style="background-image:url('images/advocacy.jpg')">
+  <div class="act-overlay">
+    <div class="icon">📢</div>
+    <h3>Advocacy</h3>
+    <p>Justice campaigns</p>
+  </div>
+</div>
+
+<div class="act-card" onclick="openModal('Reconciliation','Healing trauma and rebuilding unity.')" style="background-image:url('images/reconcile.jpg')">
+  <div class="act-overlay">
+    <div class="icon">⚖</div>
+    <h3>Reconciliation</h3>
+    <p>Unity restoration</p>
+  </div>
+</div>
+
+</div>
+</section>
+
+</main>
+
+<footer>
+<p>&copy; 2025 Golden Rule Mandate in the African Nation (GR-MAN)</p>
+</footer>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h3 id="modalTitle"></h3>
+    <p id="modalText"></p>
+    <button onclick="closeModal()">Close</button>
+  </div>
+</div>
+
+<script>
+function openModal(title,text){
+  document.getElementById("modalTitle").innerText=title;
+  document.getElementById("modalText").innerText=text;
+  document.getElementById("modal").style.display="flex";
+}
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
+</script>
+
+</body>
+</html>

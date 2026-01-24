@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GR-MAN | Home</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:Arial,sans-serif;
+  line-height:1.7;
+  background:#f2fdf6;
+  color:#222;
+}
+
+/* HEADER */
+header{
+  background:
+  linear-gradient(rgba(11,102,35,.9),rgba(11,102,35,.9)),
+  url("images/home-bg.jpg") center/cover;
+  color:#fff;
+  padding:80px 20px;
+  text-align:center;
+}
+
+header h1{
+  font-size:32px;
+}
+
+header p{
+  margin-top:10px;
+  font-size:16px;
+}
+
+/* MAIN */
+main{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+section{
+  margin-bottom:60px;
+}
+
+h2{
+  color:#0b6623;
+  margin-bottom:15px;
+  border-left:6px solid #0b6623;
+  padding-left:12px;
+}
+
+p{
+  margin-bottom:15px;
+  text-align:justify;
+}
+
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+}
+
+.card{
+  background:#fff;
+  padding:25px;
+  border-radius:14px;
+  box-shadow:0 6px 16px rgba(0,0,0,.15);
+}
+
+.card h3{
+  color:#145a32;
+  margin-bottom:10px;
+}
+
+/* CTA */
+.cta{
+  background:#0b6623;
+  color:#fff;
+  padding:40px 20px;
+  border-radius:20px;
+  text-align:center;
+}
+
+.cta a{
+  display:inline-block;
+  margin-top:20px;
+  background:#fff;
+  color:#0b6623;
+  padding:14px 30px;
+  border-radius:30px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+/* FOOTER */
+footer{
+  background:#145a32;
+  color:#fff;
+  text-align:center;
+  padding:25px;
+}
+
+/* FLOATING MENU */
+.floating-menu{
+  position:fixed;
+  bottom:25px;
+  right:25px;
+  z-index:999;
+}
+
+.menu-toggle{
+  width:75px;
+  height:75px;
+  border-radius:50%;
+  background:#0b6623;
+  color:#fff;
+  font-size:28px;
+  border:none;
+  box-shadow:0 6px 15px rgba(0,0,0,.3);
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.08)}
+  100%{transform:scale(1)}
+}
+
+.menu-items{
+  position:absolute;
+  bottom:90px;
+  right:0;
+  display:none;
+}
+
+.menu-items a{
+  width:60px;
+  height:60px;
+  background:#fff;
+  color:#0b6623;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  margin:10px 0;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:bold;
+  box-shadow:0 4px 10px rgba(0,0,0,.25);
+}
+
+.menu-items a:hover{
+  background:#0b6623;
+  color:#fff;
+}
+
+.floating-menu.active .menu-items{
+  display:block;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Golden Rule Mandate in the African Nation</h1>
+<p>Moral Restoration • Youth Empowerment • Peacebuilding</p>
+</header>
+
+<main>
+
+<section>
+<h2>Welcome to GR-MAN</h2>
+<p>
+Golden Rule Mandate in the African Nation (GR-MAN) is a humanitarian and peacebuilding
+organization dedicated to restoring moral values, reducing violence, empowering youth,
+and fostering sustainable peace across Africa.
+</p>
+</section>
+
+<section>
+<h2>What We Do</h2>
+
+<div class="cards">
+  <div class="card">
+    <h3>🕊 Peacebuilding</h3>
+    <p>
+    Conflict mediation, interfaith dialogue, and early-warning systems to prevent violence.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>🎓 Moral Education</h3>
+    <p>
+    Values-based education rooted in the universal Golden Rule principle.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>💼 Youth Empowerment</h3>
+    <p>
+    Skills training, entrepreneurship support, and leadership development.
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>🤝 Victim Support</h3>
+    <p>
+    Trauma healing, counseling, and community resilience programs.
+    </p>
+  </div>
+</div>
+</section>
+
+<section>
+<h2>Our Impact</h2>
+<p>
+Through community engagement, youth initiatives, and interfaith collaboration,
+GR-MAN has contributed to reduced tensions, empowered young leaders, and strengthened
+social cohesion in vulnerable communities.
+</p>
+</section>
+
+<section class="cta">
+<h2>See Our Work in Action</h2>
+<p>Watch real cases, videos, and voice updates from the field.</p>
+<a href="watch.html">Go to Watch Page</a>
+</section>
+
+</main>
+
+<footer>
+<p>&copy; 2025 Golden Rule Mandate in the African Nation (GR-MAN)</p>
+</footer>
+
+<!-- FLOATING MENU -->
+<div class="floating-menu" id="menu">
+<button class="menu-toggle" onclick="toggleMenu()">☰</button>
+
+<div class="menu-items">
+  <a href="home.html">Home</a>
+  <a href="watch.html">Watch</a>
+  <a href="about.html">About</a>
+  <a href="project.html">Project</a>
+  <a href="impact.html">Impact</a>
+  <a href="contact.html">Call</a>
+  <a href="admin.html">Admin</a>
+</div>
+</div>
+
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

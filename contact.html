@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GR-MAN | Contact Us</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* =========================
+   PAGE BACKGROUND IMAGE
+   👉 PUT YOUR IMAGE HERE
+   ========================= */
+body{
+  font-family:Arial,sans-serif;
+  line-height:1.8;
+  color:#333;
+
+  background:
+    linear-gradient(
+      rgba(255,255,255,0.88),
+      rgba(255,255,255,0.88)
+    ),
+    url("xix.jpg"); /* 👈 CHANGE IMAGE HERE */
+
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+}
+
+/* HEADER */
+header{
+  background:
+    linear-gradient(
+      rgba(106,17,203,0.9),
+      rgba(142,36,170,0.9)
+    ),
+    url("images/header-bg.jpg"); /* 👈 OPTIONAL HEADER IMAGE */
+
+  background-size:cover;
+  background-position:center;
+  color:#fff;
+  padding:80px 20px;
+  text-align:center;
+}
+
+/* MAIN */
+main{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+section{
+  margin-bottom:60px;
+}
+
+h2{
+  color:#6a11cb;
+  margin-bottom:20px;
+  border-left:5px solid #6a11cb;
+  padding-left:15px;
+}
+
+/* CARD */
+.card{
+  background:rgba(255,255,255,0.95);
+  padding:28px;
+  border-radius:14px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* GRID */
+.contact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+
+@media(max-width:800px){
+  .contact-grid{grid-template-columns:1fr}
+}
+
+/* FORM */
+form label{
+  font-weight:bold;
+}
+
+form input, form textarea{
+  width:100%;
+  padding:12px;
+  margin:10px 0 20px;
+  border-radius:6px;
+  border:1px solid #ccc;
+}
+
+form button{
+  background:linear-gradient(135deg,#6a11cb,#8e24aa);
+  color:#fff;
+  padding:14px;
+  border:none;
+  width:100%;
+  border-radius:10px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+form button:hover{
+  opacity:0.9;
+}
+
+/* QUICK BUTTONS */
+.quick-buttons a{
+  display:block;
+  background:linear-gradient(135deg,#6a11cb,#8e24aa);
+  color:#fff;
+  text-decoration:none;
+  padding:15px;
+  margin:10px 0;
+  text-align:center;
+  border-radius:10px;
+  font-weight:bold;
+}
+
+/* FOOTER */
+footer{
+  background:
+    linear-gradient(
+      rgba(74,20,140,0.95),
+      rgba(106,17,203,0.95)
+    ),
+    url("images/footer-bg.jpg"); /* 👈 OPTIONAL FOOTER IMAGE */
+
+  background-size:cover;
+  background-position:center;
+  color:#fff;
+  text-align:center;
+  padding:25px;
+}
+
+/* FLOATING MENU */
+.floating-menu{
+  position:fixed;
+  bottom:30px;
+  right:30px;
+  z-index:1000;
+}
+
+.menu-toggle{
+  width:75px;
+  height:75px;
+  border-radius:50%;
+  background:#6a11cb;
+  color:#fff;
+  border:none;
+  font-size:28px;
+  cursor:pointer;
+  box-shadow:0 6px 12px rgba(0,0,0,0.3);
+}
+
+.menu-items{
+  position:absolute;
+  bottom:90px;
+  right:0;
+  display:none;
+}
+
+.menu-items a{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:65px;
+  height:65px;
+  margin:10px 0;
+  background:#fff;
+  color:#6a11cb;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:12px;
+  border-radius:50%;
+}
+
+.floating-menu.active .menu-items{
+  display:block;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Contact GR-MAN</h1>
+<p>Reach out for partnership, support, and peacebuilding initiatives</p>
+</header>
+
+<main>
+
+<section class="card">
+<h2>Get in Touch</h2>
+<p>
+Golden Rule Mandate in the African Nation (GR-MAN) welcomes partnerships,
+volunteers, donors, and communities committed to peace, moral values,
+and sustainable development across Africa.
+</p>
+</section>
+
+<section class="contact-grid">
+
+<div class="card">
+<h2>Contact Information</h2>
+<p><strong>Founder:</strong> Arum Jonathan (PhD)</p>
+<p><strong>Email:</strong> arum.jonathan@dou.edu.ng</p>
+<p><strong>Phone:</strong> 07030209590</p>
+
+<div class="quick-buttons">
+<a href="tel:07030209590">📞 Call Now</a>
+<a href="https://wa.me/2347030209590">💬 WhatsApp</a>
+<a href="mailto:arum.jonathan@dou.edu.ng">✉️ Send Email</a>
+</div>
+</div>
+
+<div class="card">
+<h2>Send Us a Message</h2>
+<form onsubmit="sendMessage(event)">
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Email Address" required>
+<input type="text" placeholder="Subject" required>
+<textarea rows="6" placeholder="Message" required></textarea>
+<button type="submit">Send Message</button>
+</form>
+</div>
+
+</section>
+
+</main>
+
+<footer>
+<p>&copy; 2025 Golden Rule Mandate in the African Nation (GR-MAN)</p>
+</footer>
+
+<script>
+function sendMessage(e){
+  e.preventDefault();
+  alert("Thank you for contacting GR-MAN. We will get back to you shortly.");
+}
+</script>
+
+</body>
+</html>

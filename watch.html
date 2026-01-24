@@ -1,0 +1,144 @@
+<!-- watch.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GR-MAN | Watch</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#f4f0ff;
+}
+
+/* HEADER */
+header{
+  background:linear-gradient(135deg,#6a11cb,#2575fc);
+  color:#fff;
+  padding:20px;
+  text-align:center;
+  position:sticky;
+  top:0;
+}
+
+/* ADMIN BAR */
+.admin-bar{
+  background:#ede7ff;
+  padding:10px;
+  text-align:center;
+}
+
+.admin-bar button{
+  background:#6a11cb;
+  color:#fff;
+  border:none;
+  padding:8px 14px;
+  border-radius:6px;
+}
+
+/* FEED */
+.feed{
+  max-width:720px;
+  margin:auto;
+  padding:20px;
+}
+
+.post{
+  background:#fff;
+  border-radius:18px;
+  margin-bottom:40px;
+  box-shadow:0 8px 18px rgba(0,0,0,.15);
+}
+
+.post-text{
+  padding:18px;
+}
+
+.post img,
+.post video{
+  width:100%;
+}
+
+.post audio{
+  width:100%;
+  padding:15px;
+}
+
+.actions{
+  padding:15px;
+}
+
+.actions button{
+  background:#ede7ff;
+  border:none;
+  border-radius:20px;
+  padding:10px 18px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+.comments{
+  padding:15px;
+  border-top:1px solid #eee;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h2>GR-MAN Watch</h2>
+<p>Real impact • Real stories</p>
+</header>
+
+<div class="feed" id="feed"></div>
+
+<script>
+const ADMIN_PASSWORD="j-klef@A46";
+
+let userId=localStorage.getItem("userId");
+if(!userId){
+  userId="user_"+Date.now();
+  localStorage.setItem("userId",userId);
+}
+
+function loadPosts(){
+  const posts=JSON.parse(localStorage.getItem("watchPosts"))||[];
+  feed.innerHTML="";
+
+  if(posts.length===0){
+    feed.innerHTML="<p style='text-align:center'>No posts yet</p>";
+    return;
+  }
+
+  posts.forEach((p,i)=>{
+    const div=document.createElement("div");
+    div.className="post";
+    div.innerHTML=`
+      <div class="post-text">${p.text||""}</div>
+      ${p.img?`<img src="${p.img}">`:""}
+      ${p.vid?`<video src="${p.vid}" controls></video>`:""}
+      ${p.aud?`<audio src="${p.aud}" controls></audio>`:""}
+      <div class="actions">
+        <button onclick="likePost(${i})">❤️ ${p.likes||0}</button>
+      </div>
+    `;
+    feed.appendChild(div);
+  });
+}
+
+function likePost(i){
+  const posts=JSON.parse(localStorage.getItem("watchPosts"))||[];
+  posts[i].likes++;
+  localStorage.setItem("watchPosts",JSON.stringify(posts));
+  loadPosts();
+}
+
+loadPosts();
+</script>
+
+</body>
+</html>
